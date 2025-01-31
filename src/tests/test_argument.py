@@ -53,7 +53,7 @@ class TestStringMethods(unittest.TestCase):
             pass
         except Exception:
             assert False, "Should raise ValueError"
-        
+
     def test_string_argument(self):
         arg = StringArgument("d")
         arg.set("/usr/logs")
@@ -62,4 +62,3 @@ class TestStringMethods(unittest.TestCase):
         self.assertEquals(arg.get(), "123")
         arg.set("abc")
         self.assertEquals(arg.get(), "abc")
-

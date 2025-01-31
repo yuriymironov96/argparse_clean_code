@@ -26,7 +26,10 @@ class BooleanArgument(Argument):
     value: bool
 
     def set(self, value: str):
-        self.value = bool(value)
+        if value in ["false", "0"]:
+            self.value = False
+        else:
+            self.value = bool(value)
 
 
 class IntegerArgument(Argument):

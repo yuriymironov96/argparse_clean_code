@@ -14,6 +14,8 @@ class Argument:
     def resolve_class_by_datatype(self, datatype):
         if datatype == "#":
             return IntegerArgument
+        if datatype == "##":
+            return FloatArgument
         elif datatype == "*":
             return StringArgument
         elif datatype == "":
@@ -44,3 +46,10 @@ class StringArgument(Argument):
 
     def set(self, value: str):
         self.value = value
+
+
+class FloatArgument(Argument):
+    value: float
+
+    def set(self, value: str):
+        self.value = float(value)

@@ -1,5 +1,3 @@
-from typing import TYPE_CHECKING
-
 from src.exceptions import SchemaNotParsedError
 
 from src.argument import Argument
@@ -38,3 +36,6 @@ class Args:
 
     def get_int(self, key: str) -> int:
         return int(self.arguments[key].get())
+
+    def get_float(self, key: str) -> int:
+        return float(self.arguments[key].get())

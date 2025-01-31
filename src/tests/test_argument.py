@@ -4,7 +4,8 @@ from src.argument import (
     Argument,
     BooleanArgument,
     IntegerArgument,
-    StringArgument
+    StringArgument,
+    FloatArgument
 )
 
 
@@ -62,3 +63,17 @@ class TestStringMethods(unittest.TestCase):
         self.assertEquals(arg.get(), "123")
         arg.set("abc")
         self.assertEquals(arg.get(), "abc")
+
+    def test_float_argumnet(self):
+        arg = FloatArgument("f")
+        arg.set("3.14")
+        self.assertEquals(arg.get(), 3.14)
+        self.assertRaises(ValueError, arg.set, "abc")
+        try:
+            arg.set("abc")
+            arg.get()
+            assert False, "Should raise ValueError"
+        except ValueError:
+            pass
+        except Exception:
+            assert False, "Should raise ValueError"
